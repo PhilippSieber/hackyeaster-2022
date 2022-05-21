@@ -1,0 +1,13 @@
+version: '3'
+services:
+  eggo:
+    build: .
+    image: he2022/eggo
+    restart: always
+    networks:
+      - challengenet
+    ports:
+      - "2208:1337"
+networks:
+  challengenet:
+    external: true

@@ -1,0 +1,2 @@
+- the number of words is important
+- search the nearby area

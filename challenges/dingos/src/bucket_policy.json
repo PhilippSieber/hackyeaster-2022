@@ -1,0 +1,33 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PublicRead",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": [
+                "s3:GetObject",
+                "s3:GetObjectVersion"
+            ],
+            "Resource": [
+                "arn:aws:s3:::dingos/index.html",
+                "arn:aws:s3:::dingos/img/dingo1.jpg",
+                "arn:aws:s3:::dingos/img/dingo2.jpg",
+                "arn:aws:s3:::dingos/img/dingo3.jpg",
+                "arn:aws:s3:::dingos/img/dingo4.jpg",
+                "arn:aws:s3:::dingos/img/dingo4.jpg",
+                "arn:aws:s3:::dingos/img/dingo_egg_ognid.png"
+            ]
+        },
+        {
+            "Sid": "ListImages",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": [
+                "s3:ListBucket",
+                "s3:ListBucketVersions"
+            ],
+            "Resource": "arn:aws:s3:::dingos"
+        }
+    ]
+}

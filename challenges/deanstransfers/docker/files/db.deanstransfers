@@ -1,0 +1,14 @@
+$TTL	302400
+@	IN	SOA	deans-transfers.express. admin.deans-transfers.express (
+			      2		; Serial
+			 302400		; Refresh
+			  43200		; Retry
+			 302400		; Expire
+			 302400 )	; Negative Cache TTL
+;
+@	IN	NS	ns.deans-transfers.express.
+
+
+aGUyMDIye2QzNG5fZHIxdjNzX3lvdV8zdjNyeXdoM3IzISF9 			IN	A	10.0.0.8
+base64decode 			IN	A	10.0.13.9
+ns			IN	A	10.0.0.2

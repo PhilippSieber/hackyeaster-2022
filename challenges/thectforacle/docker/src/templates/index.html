@@ -1,0 +1,158 @@
+{% extends "based.html" %} {%block scripts %}
+<script src="{{ url_for('static', filename='index.js') }}" defer></script>
+
+{%endblock%} {% block content %}
+<div class="container-fluid">
+  <h1 style="color: #735bc1">Let me see what the future brings...</h1>
+  {% if 'id' in session %}
+  <p>
+    The oracle is using models and algorithms to predict how you will perform in
+    CTFs in the future! Please choose a CTF and the total points you made in the
+    last three years.
+  </p>
+
+  <div class="container-fluid">
+    <div class="row" style="height: 80vh">
+      <div class="col-sm-6">
+        <form id="ctf-form">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label
+                class="input-group-text"
+                style="width: 60px"
+                for="inputGroupSelect01"
+                >CTF</label
+              >
+            </div>
+            <select
+              required=""
+              class="custom-select"
+              name="ctf"
+              id="inputGroupSelect01"
+            >
+              <option selected="selected">Choose...</option>
+              <option value="HE" selected="selected">Hackyeaster</option>
+              <option value="HV">HackVENT (aka insomni-vent)</option>
+              <option value="HL">Hack.lu CTF</option>
+              <option value="PC">picoCTF</option>
+            </select>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">2019</span>
+            </div>
+            <input
+              type="text"
+              required=""
+              name="2019"
+              value="52"
+              id="2019"
+              class="form-control"
+              placeholder="Points"
+              aria-label="Points"
+              aria-describedby="basic-addon1"
+            />
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">2020</span>
+            </div>
+            <input
+              type="text"
+              required=""
+              name="2020"
+              id="2020"
+              value="43"
+              class="form-control"
+              placeholder="Points"
+              aria-label="Points"
+              aria-describedby="basic-addon1"
+            />
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">2021</span>
+            </div>
+            <input
+              type="text"
+              required=""
+              name="2021"
+              id="2021"
+              value="45"
+              class="form-control"
+              placeholder="Points"
+              aria-label="Points"
+              aria-describedby="basic-addon1"
+            />
+          </div>
+          <button type="submit" class="btn btn-dark">
+            Ask the mighty CTF Oracle
+          </button>
+          <button type="reset" class="btn btn-outline-info">
+            Reset Inputs
+          </button>
+        </form>
+
+        <div class="alert alert-danger mt-3" style="display: none" id="feedback"></div>
+
+        <p style="margin-top: 20px">
+          By asking the CTF Oracle you accept the
+          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            >Terms and Conditions</a
+          >
+        </p>
+      </div>
+
+      <div
+        class="col-sm-6"
+        style="
+          background-image: url({{ url_for('static', filename='oracle.png') }});
+          background-repeat: no-repeat;
+          background-size: 90vh 90%;
+        "
+      >
+        <span
+        id="oracleResult"
+          style="
+            font-size: 10vh;
+            margin-left: 23vh;
+            line-height: 58vh;
+            color: yellow;
+            animation-name: example;
+            animation-duration: 2s;
+          "
+          >???</span
+        >
+        <span style="font-size: 5vh; color: black">Points</span>
+      </div>
+    </div>
+  </div>
+  {% else %}
+ 
+<p>Please login first to see your CTF future.</p>
+<div class="pt-5" style="width: 300px; margin-left: calc(50% - 150px);">
+<h3>Login</h3>
+  <form action="/login" method="POST" >
+    <div class="input-group mb-3 mt-3" style>
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Username</span>
+        </div>
+        <input
+          type="text"
+          required=""
+          name="username"
+          id="username"
+          class="form-control"
+          placeholder="Username"
+          aria-label="Username"
+          aria-describedby="basic-addon1"
+        />
+      </div>
+      <button type="submit" class="btn btn-dark">Login</button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endif %}
+</div>
+{% endblock %}

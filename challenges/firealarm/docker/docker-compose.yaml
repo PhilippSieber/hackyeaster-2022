@@ -1,0 +1,13 @@
+version: '3'
+services:
+  firealarm:
+    build: .
+    image: he2022/firealarm
+    restart: always
+    networks:
+      - challengenet
+    ports:
+      - "2204:1337"
+networks:
+  challengenet:
+    external: true

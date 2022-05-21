@@ -1,0 +1,28 @@
+extends main.pug
+
+block content
+  div.splash-container
+    div.splash
+      h1.splash-head.smaller 自動販売機
+      img.title-image(src='title.png')
+      p.splash-subhead
+        div.green あなたの選択をしてください!
+        form.pure-form.pure-form-stacked(role='form' method='POST' action='/order')
+          fieldset
+            select#item.select.form-control(name='item')
+                option(value='🧋') 🧋
+                option(value='🧃') 🧃
+                option(value='🍶') 🍶
+                option(value='🍱') 🍱
+                option(value='🍣') 🍣
+                option(value='🍫') 🍫
+                option(value='🍭') 🍭
+                option(value='🍩') 🍩
+            select#amount.select.form-control(name='amount')
+                option(value='1') 一
+                option(value='2') 二
+                option(value='3') 三
+                option(value='4') 四
+            br
+            button.pure-button.pure-button-primary(type="button", name="form", onclick="doSubmit()") 選ぶ
+            h1#output.splash-head.smaller

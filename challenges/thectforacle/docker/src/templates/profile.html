@@ -1,0 +1,45 @@
+{% extends "based.html" %} {% block content %}
+<div class="container-fluid">
+  <h1 style="color: #735bc1">Profile</h1>
+  <div>
+    <div>
+      <h4>Username: {{ username }}</h4>
+      <img src="/profile-picture/{{ session['id'] }}" />
+    </div>
+    <div>
+      <h3 class="mt-3">Edit</h3>
+      <form
+        action="/profile-picture"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <div>
+          <label for="img">Upload Profile Picture</label>
+          <div>
+            <div class="file has-name">
+              <label class="file-label">
+                <input
+                  class="file-input"
+                  type="file"
+                  name="img"
+                  accept="image/png"
+                />
+              </label>
+            </div>
+          </div>
+        </div>
+        <div>
+            <button class="btn btn-dark">Upload</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+
+<script>
+  const img = document.querySelector('[name="img"]');
+  img.addEventListener("change", () => {
+    document.querySelector("#file-name").textContent = img.files[0].name;
+  });
+</script>
+{% endblock %}

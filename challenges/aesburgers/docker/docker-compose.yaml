@@ -1,0 +1,13 @@
+version: '3'
+services:
+  aesburgers:
+    build: .
+    image: he2022/aesburgers
+    restart: always
+    networks:
+      - challengenet
+    ports:
+      - "2207:1337"
+networks:
+  challengenet:
+    external: true

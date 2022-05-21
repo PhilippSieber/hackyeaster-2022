@@ -1,0 +1,15 @@
+{
+  "name": "vendingmachine",
+  "version": "1.0.0",
+  "description": "Vending Machine",
+  "author": "Hacky Easter <hackyeaster@gmail.com>",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "pug": "^3.0.2",
+    "helmet": "^2.1.2"
+  }
+}

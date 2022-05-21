@@ -1,0 +1,16 @@
+version: '3'
+services:
+  deanstransfers:
+    build: .
+    image: he2022/deanstransfers
+    restart: always
+    networks:
+      - challengenet
+    ports:
+      - "2211:53"
+      - "2211:53/udp"
+    tty: true
+    stdin_open: true
+networks:
+  challengenet:
+    external: true

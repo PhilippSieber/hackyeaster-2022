@@ -1,0 +1,13 @@
+# solution
+- find out it's an S3 bucket URL
+- use the AWS CLI
+  - add `--no-sign-request` parameter to calls, if no AWS account
+  - get object list
+    - `aws s3api list-objects-v2 --bucket dingos --no-sign-request`
+    -> see img/dingo_egg_ognid.png
+    - `aws s3api get-object --bucket dingos --key img/dingo_egg_ognid.png egg.png --no-sign-request`
+    -> no cake
+  - list versions of that file
+    - `aws s3api list-object-versions --bucket dingos --prefix img/dingo_egg_ognid.png --no-sign-request`
+  - fetch older version
+    - `aws s3api get-object --bucket dingos --key img/dingo_egg_ognid.png --version-id efyGzmXduxQAcaQIBgsxEj5i8xlCUdjG egg.png --no-sign-request`

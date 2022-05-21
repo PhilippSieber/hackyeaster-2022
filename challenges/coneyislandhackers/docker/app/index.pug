@@ -1,0 +1,14 @@
+extends main.pug
+
+block content
+  div.splash-container
+    div.splash
+      img.title-image(src='title.png')
+      h1.splash-head.smaller Coney Island Hackers
+      p.splash-subhead
+        div.green enter passphrase to enter
+        form(role='form' method='GET' action='/')
+            div.form-group
+            label(for='passphrase')
+            input#name.form-control(type='text', placeholder='passphrase' name='passphrase')
+            button.pure-button.pure-button-primary(type="submit", name="form") Login

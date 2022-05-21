@@ -1,0 +1,20 @@
+version: '3.7'
+services:
+  thectforacle:
+    build: .
+    image: he2022/thectforacle
+    restart: always
+    networks:
+      - challengenet
+    ports:
+      - "2206:8000"
+    volumes:
+      - type: tmpfs
+        target: /tmp
+        tmpfs:
+          size: 268435456 # 256MiB
+    env_file:
+      - meta/env
+networks:
+  challengenet:
+    external: true

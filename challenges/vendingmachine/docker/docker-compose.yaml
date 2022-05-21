@@ -1,0 +1,13 @@
+version: '3'
+services:
+  vendingmachine:
+    build: .
+    image: he2022/vendingmachine
+    restart: always
+    networks:
+      - challengenet
+    ports:
+      - "2210:1337"
+networks:
+  challengenet:
+    external: true

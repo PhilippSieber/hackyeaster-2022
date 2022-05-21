@@ -1,0 +1,13 @@
+version: '3'
+services:
+  fibonaccirabbits:
+    build: .
+    image: he2022/fibonaccirabbits
+    restart: always
+    networks:
+      - challengenet
+    ports:
+      - "2201:80"
+networks:
+  challengenet:
+    external: true

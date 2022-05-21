@@ -1,0 +1,13 @@
+version: '3'
+services:
+  casino:
+    build: .
+    image: he2022/casino
+    restart: always
+    networks:
+      - challengenet
+    ports:
+      - "2212:1337"
+networks:
+  challengenet:
+    external: true

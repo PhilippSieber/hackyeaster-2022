@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Copy Protection Pioneers</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+@font-face {
+  font-family: robofont;
+  src: url(slkscr.ttf);
+}
+
+h2{
+  color: #fdf7e9;
+}
+
+body {
+  background: black;
+  color: #1bf1f9;
+  font-family: robofont;
+  font-size: 40px;
+}
+
+.gridLocation{
+  color: white;
+}
+
+.gridText{
+  margin-top: 23px;
+  margin-bottom: 12px;
+}
+
+.inputGrid{
+  font-size: 25px;
+  margin-left: 20px;
+  font-family: robofont;
+}
+
+.checkBtn{
+  color: #fdf7e9;
+  margin-left: 20px;
+  font-family: robofont;
+  border: solid;
+  cursor: pointer;
+  font-size: 70px;
+  transition-duration: 0.4s;
+}
+
+.checkBtn:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+#flag{
+  color: yellow;
+  -webkit-transition: opacity .5s ease-in-out;
+   -moz-transition: opacity .5s ease-in-out;
+   -ms-transition: opacity .5s ease-in-out;
+   -o-transition: opacity .5s ease-in-out;
+   transition: opacity .5s ease-in-out;
+}
+
+</style>
+
+<body>
+
+
+<table>
+
+<tr><td>
+<div class="gridText">
+Enter code at grid location: <span class="gridLocation">A4</span></div>
+</td>
+<td>
+<input class="inputGrid" type="text" autofocus id="key1" value="2142" name="key1" maxlength="4" size="4">
+</td></tr>
+
+<tr><td>
+<div class="gridText">
+Enter code at grid location: <span class="gridLocation">C2</span></div>
+</td>
+<td>
+<input class="inputGrid" type="text" id="key2" name="key2" value="4232" maxlength="4" size="4">
+</td></tr>
+
+<tr><td>
+<div class="gridText">
+Enter code at grid location: <span class="gridLocation">D4</span></div>
+</td>
+<td>
+<input class="inputGrid" type="text" id="key3" name="key3" value="1331" maxlength="4" size="4">
+</td></tr>
+
+<tr><td>
+<div class="gridText">
+Enter code at grid location: <span class="gridLocation">F9</span></div>
+</td>
+<td>
+<input class="inputGrid" type="text" id="key4" name="key4" value="4213" maxlength="4" size="4">
+</td></tr>
+
+<tr><td>
+<div class="gridText">
+Enter code at grid location: <span class="gridLocation">Q2</span></div>
+</td>
+<td>
+<input class="inputGrid" type="text" id="key5" name="key5" value="1243" maxlength="4" size="4">
+</td></tr>
+
+</table>
+
+<span class="checkBtn" id="checkBtn">Check</span>
+
+<div id="flag"></div>
+
+</body>
+<script>
+
+document.getElementById("checkBtn").addEventListener("click", checkFlag);
+
+function checkFlag() {
+
+  var fullKey = document.getElementById("key1").value+"-"+document.getElementById("key2").value+"-"+document.getElementById("key3").value+"-"+document.getElementById("key4").value+"-"+document.getElementById("key5").value;
+  
+  document.getElementById("flag").innerHTML = "";
+  document.getElementById("flag").style.opacity = 0;
+  var flag = "";
+
+  var encrypted = CryptoJS.AES.encrypt("Here is your flag: he2022{J3t-53t-W1llY-f0r3v3R}", fullKey);
+  console.log(encrypted.toString());
+  var decrypted = CryptoJS.AES.decrypt(encrypted, fullKey);
+  try {
+	var flag = decrypted.toString(CryptoJS.enc.Utf8);
+  }
+  catch (e) {}
+  
+  if(flag === ""){
+    document.getElementById("flag").innerHTML = "Sorry, no flag!";
+  }else{
+    document.getElementById("flag").innerHTML = flag;
+  }
+  setTimeout(function(){ 
+    document.getElementById("flag").style.opacity = 1;
+  }, 500);
+
+}
+
+</script>
+</html>

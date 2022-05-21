@@ -1,0 +1,13 @@
+version: '3'
+services:
+  consonantplanet:
+    build: .
+    image: he2022/consonantplanet
+    restart: always
+    networks:
+      - challengenet
+    ports:
+      - "2205:80"
+networks:
+  challengenet:
+    external: true

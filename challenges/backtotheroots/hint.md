@@ -1,0 +1,1 @@
+No hardware is needed for this challenge - though it might be helpful.
