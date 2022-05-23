@@ -1,3 +1,8 @@
+
+
+The public GitHub repo for Hacky Easter 2022 is live! Challenge sources, stats, write-ups, and more! 
+
+
 # HackyEaster 2022
 
 ## Thank You
@@ -10,7 +15,8 @@ You can find all challenges, including sources, dockerfiles, solution, etc. in t
 The following write-ups have been written (contact me at hackyeaster@gmail.com if you want yours to be added):
 - [ice (GitHub)](https://github.com/InverseIntegral/ctf_writeups/tree/master/hackyeaster_2022#hacky-easter-2022)
 - [verath (GitHub)](https://github.com/verath/hacky-easter-22)
-- [evandrix (GitHub)](https://github.com/redstang33/CTF/tree/main/hacky-easter-2022)
+- [redstang33 (GitHub)](https://github.com/redstang33/CTF/tree/main/hacky-easter-2022)
+- [brp64 (GitHub)](https://github.com/tbrup/ctf-writeups/blob/main/HackyEaster/he2022/solution.pdf)
 
 ## Ph1n1sh3rs
 The following players have beaten all levels and got rewarded with a "Ph1n1sh3r" badge. Congrats!
